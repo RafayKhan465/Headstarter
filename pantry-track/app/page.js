@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { firestore } from "@/firebase";
-import { Box, Typography } from "@mui/material";
+import { Box, Modal, Typography } from "@mui/material";
 import { collection, query } from "firebase/firestore";
 import { getDocs } from "firebase/firestore";
 
@@ -70,6 +70,24 @@ export default function Home() {
       alignItems="center"
       gap={2}
     >
+      <Modal open={open} onClose={handleClose}>
+        <Box
+          position="absolute"
+          top="50%"
+          left="50%"
+          transform="translate(-50%,-50%)"
+          width={400}
+          bgcolor="white"
+          border="2px solid #000"
+          boxShadow={24}
+          p={4}
+          display="flex"
+          flexDirection="column"
+          gap={3}
+        ></Box>
+      </Modal>
+      
+
       <Typography variant="h1">Inventory Management</Typography>
     </Box>
   );
